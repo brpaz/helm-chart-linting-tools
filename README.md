@@ -1,8 +1,8 @@
-# helm-linting-tools
+# helm-chart-linting-tools
 
 > Docker image to help testing Helm Charts. Includes [Helm](https://helm.sh/) with [Kubeval](https://github.com/instrumenta/helm-kubevalhelm) and [Conftestt](https://github.com/instrumenta/helm-conftest) plugins
 
-![CI Status](https://img.shields.io/github/workflow/status/user/repo/workflow?color=orange&label=actions&logo=github&logoColor=orange&style=for-the-badge)](http://github.com/brpaz/helm-linting-tools)
+[![CI Status](https://img.shields.io/github/workflow/status/brpaz/helm-chart-lint-tools/CI?color=orange&label=actions&logo=github&logoColor=orange&style=for-the-badge)](http://github.com/brpaz/helm-chart-linting-tools)
 ![Docker Pulls](https://img.shields.io/docker/pulls/brpaz/helm-chart-testing-tools.svg?style=for-the-badge)
 ![MicroBadger Layers](https://img.shields.io/microbadger/layers/brpaz/helm-chart-testing-tools?style=for-the-badge)
 ![MicroBadger Size](https://img.shields.io/microbadger/image-size/brpaz/helm-chart-testing-tools?style=for-the-badge)
