@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 env:
   TEST_IMAGE_NAME: helm-chart-linting-tools:${{ github.sha }}
-  PROD_IMAGE_NAME: brpaz/helm-chart-linting-tools
+  PROD_IMAGE_NAME: brpaz/helm-chart-linting-tools:latest
 
 jobs:
   lint:
@@ -21,13 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker Image
-        run: docker build . -t $CONTAINER_TEST_IMAGE
+        run: docker build . -t $TEST_IMAGE_NAME
       - name: Container Structure test
         uses: brpaz/structure-tests-action@master
         with:
-          image: ${{ env.CONTAINER_TEST_IMAGE }}
+          image: ${{ env.TEST_IMAGE_NAME }}
       - name: Crate image artifact
-        run: docker save -o image.tar.gz $CONTAINER_TEST_IMAGE
+        run: docker save -o image.tar.gz $TEST_IMAGE_NAME
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
@@ -46,7 +46,7 @@ jobs:
           name: image
       - name: Load Docker image
         run: docker load < image/image.tar.gz
-      - run: docker tag $CONTAINER_TEST_IMAGE $CONTAINER_TEST_IMAGE_LATEST
+      - run: docker tag $TEST_IMAGE_NAME $PROD_IMAGE_NAME
       - uses: actions/checkout@master
       - name: Release
         uses: cycjimmy/semantic-release-action@v2
