@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 env:
   TEST_IMAGE_NAME: helm-chart-linting-tools:${{ github.sha }}
-  PROD_IMAGE_NAME: brpaz/helm-chart-linting-tools:latest
+  PROD_IMAGE_NAME: helm-chart-linting-tools:latest
 
 jobs:
   lint:
