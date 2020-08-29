@@ -1,0 +1,22 @@
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/git",
+        "@semantic-release/github",
+        [
+            "@eclass/semantic-release-docker",
+            {
+                "baseImageName": "helm-chart-linting-tools",
+                "registries": [
+                    {
+                        "url": "docker.io",
+                        "imageName": "docker.io/brpaz/helm-chart-linting-tools",
+                        "user": "DOCKER_USER",
+                        "password": "DOCKER_PASSWORD"
+                    }
+                ]
+            }
+        ]
+    ]
+}

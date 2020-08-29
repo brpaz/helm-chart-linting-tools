@@ -1,0 +1,16 @@
+schemaVersion: 2.0.0
+commandTests:
+  - name: "Helm Is installed"
+    command: helm
+    args: ["version"]
+    exitCode: 0
+
+  - name: "Helm Kubeval Plugin is installed"
+    command: helm
+    args: ["kubeval", "--version"]
+    exitCode: 0
+
+  - name: "Helm Conftest Plugin is installed"
+    command: helm
+    args: ["conftest", "--help"]
+    exitCode: 0
